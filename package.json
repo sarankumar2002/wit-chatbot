@@ -12,9 +12,8 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "botkit": "^0.4.0",
-    "express": "^4.14.0",
-    "localtunnel": "^1.8.1",
-    "node-local-tunnel": "^0.1.5",
+    "express": "^4.14.0",   
+    "node-wit": "^4.1.0",
     "request": "^2.76.0",
     "witbot": "^2.1.0"
   }
