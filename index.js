@@ -1,24 +1,13 @@
 var Botkit = require('botkit');
-var Witbot = require('witbot');
+var Witbot = require('./lib/witbot');
 var express = require('express');
 var request = require('request');
 var app = express();
 
-const PORT=8081;
+const PORT=8080;
 
 var witToken = '5T3CGIH2XOZBNT3FPSYDD645FGGW3KLT';
 
-app.get('/webhook', function(req, res) {
-  if (req.query['hub.mode'] === 'subscribe' &&
-      req.query['hub.verify_token'] === "password") {
-    console.log("Validating webhook");
-    res.status(200).send(req.query['hub.challenge']);
-  } else {
-    console.error("Failed validation. Make sure the validation tokens match.");
-    res.sendStatus(403);          
-  }  
-});
-//app.listen(PORT);
 
 var controller = Botkit.facebookbot({
         access_token: 'EAAPfh8pNKIkBAHhKjAEvtbV61kRVLFqP8ZB5kznLmKY1PCiHfoZBqMjCryzwJdZCA1iPZCIRLaGsoAsgbK7OSiQzO2bZBrER17MBw0ZBcpsMZA9VCenlzSCfUiRCKB8In49jrM2H5RxPfDNEQjmAxZCSoozTZBn6p1WkM1UffYFlkTAdkYLojuq5I',
@@ -175,9 +164,9 @@ controller.hears('.*', 'message_received', function(bot, message) {
 
 
 
+// Commented this scipt to run in cloud
 
-
-
+/**
 var localtunnel = require('localtunnel');
 
 var opts = {
@@ -193,4 +182,4 @@ var tunnel = localtunnel(PORT,opts, function(err, tunnel) {
     // i.e. https://abcdefgjhij.localtunnel.me
     tunnel.url;
 	console.log(tunnel.url);
-});
+}); **/
