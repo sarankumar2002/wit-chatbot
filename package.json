@@ -1,0 +1,21 @@
+{
+  "name": "wit-chatbot",
+  "version": "1.0.0",
+  "description": "sample wit bot sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Saran",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "botkit": "^0.4.0",
+    "express": "^4.14.0",
+    "localtunnel": "^1.8.1",
+    "node-local-tunnel": "^0.1.5",
+    "request": "^2.76.0",
+    "witbot": "^2.1.0"
+  }
+}
