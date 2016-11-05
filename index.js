@@ -7,6 +7,7 @@ var app = express();
 const PORT=8080;
 
 var witToken = '5T3CGIH2XOZBNT3FPSYDD645FGGW3KLT';
+var restUrl = 'http://rest-service-wit-chatbot.44fs.preview.openshiftapps.com/chatbot-rest-service-0.0.1-SNAPSHOT';
 
 
 var controller = Botkit.facebookbot({
@@ -46,7 +47,7 @@ controller.hears('.*', 'message_received', function(bot, message) {
 		
 		var mtcnNumber = outcome.entities.number[0].value;
 		console.log('mtcn'+mtcnNumber);
-		var url = 'http://localhost:8082/mtcnstatus?mtcn='+mtcnNumber;
+		var url = restUrl+'/mtcnstatus?mtcn='+mtcnNumber;
 		request({url:url,json:true},function(error,response,data){
 		if(error){
 			return console.log(error)
@@ -74,7 +75,7 @@ controller.hears('.*', 'message_received', function(bot, message) {
 		
 		var mtcnNumber = outcome.entities.number[0].value;
 		console.log('mtcn'+mtcnNumber);
-		var url = 'http://localhost:8082/mtcnstatus?mtcn='+mtcnNumber;
+		var url = restUrl+'/mtcnstatus?mtcn='+mtcnNumber;
 		request({url:url,json:true},function(error,response,data){
 		if(error){
 			return console.log(error)
@@ -95,9 +96,6 @@ controller.hears('.*', 'message_received', function(bot, message) {
 	
 		// Hello	
 		wit.hears('Hello',0.5,function(bot,message,outcome){
-		
-			//console.log('hello outcome'+ JSON.stringify(outcome))
-		
 			bot.reply(message,'Hello! how can i help you today' );	
 		});	
 		
@@ -108,7 +106,7 @@ controller.hears('.*', 'message_received', function(bot, message) {
 		console.log('Rewards outcome'+ JSON.stringify(outcome))	
 		 
 		 var country ='US';		 
-		 var url = 'http://localhost:8082/rewards?country='+country;
+		 var url = restUrl+'/rewards?country='+country;
 		 request({url:url,json:true},function(error,response,data){
 			
 		if(error){
@@ -126,14 +124,13 @@ controller.hears('.*', 'message_received', function(bot, message) {
 		 
 		});	
 
-
 		// Rewards	
 		wit.hears('reward',0.5,function(bot,message,outcome){
 		
 		console.log('Rewards outcome'+ JSON.stringify(outcome))	
 		 
 		 var country ='US';		 
-		 var url = 'http://localhost:8082/rewards?country='+country;
+		 var url = restUrl+'/rewards?country='+country;
 		 request({url:url,json:true},function(error,response,data){
 			
 		if(error){
@@ -150,10 +147,6 @@ controller.hears('.*', 'message_received', function(bot, message) {
 		 });
 		 
 		});				
-		
-		
-		
-		
 
 	wit.otherwise(function (bot, message) {
 		// sending rest call
@@ -162,11 +155,9 @@ controller.hears('.*', 'message_received', function(bot, message) {
 });
 
 
-
-
 // Commented this scipt to run in cloud
 
-/**
+
 var localtunnel = require('localtunnel');
 
 var opts = {
@@ -182,4 +173,4 @@ var tunnel = localtunnel(PORT,opts, function(err, tunnel) {
     // i.e. https://abcdefgjhij.localtunnel.me
     tunnel.url;
 	console.log(tunnel.url);
-}); **/
+});
