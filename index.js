@@ -157,7 +157,7 @@ controller.hears('.*', 'message_received', function(bot, message) {
 
 // Commented this scipt to run in cloud
 
-/**
+
 var localtunnel = require('localtunnel');
 
 var opts = {
@@ -175,4 +175,3 @@ var tunnel = localtunnel(PORT,opts, function(err, tunnel) {
 	console.log(tunnel.url);
 });
 
-**/
