@@ -7,11 +7,11 @@ var app = express();
 const PORT=8080;
 
 var witToken = '5T3CGIH2XOZBNT3FPSYDD645FGGW3KLT';
-var restUrl = 'http://rest-service-wit-chatbot.44fs.preview.openshiftapps.com/chatbot-rest-service-0.0.1-SNAPSHOT';
+var restUrl = 'http://chat-wu-chatbot-app.44fs.preview.openshiftapps.com/chatbot-rest-service-0.0.1-SNAPSHOT';
 
 
 var controller = Botkit.facebookbot({
-        access_token: 'EAAPfh8pNKIkBAHhKjAEvtbV61kRVLFqP8ZB5kznLmKY1PCiHfoZBqMjCryzwJdZCA1iPZCIRLaGsoAsgbK7OSiQzO2bZBrER17MBw0ZBcpsMZA9VCenlzSCfUiRCKB8In49jrM2H5RxPfDNEQjmAxZCSoozTZBn6p1WkM1UffYFlkTAdkYLojuq5I',
+        access_token: 'EAAXsECOMqecBAJ5EsP7pZAoki5PavMTGqjkTuU7ZALSKqikQF5dxjHNxcPS5BeNuLBQiA85LrvT2UtkcC6YMfebZC7QYg1x1L9ZBtnzpUu7IZBgDyTiWZCb9KLg0ccD0sKSOZClFEZAVHO1pRXtMPkK6Q94CSVxubvHVMU0TG9EQNMmZBLUJOBknp',
         verify_token: 'password',
 })
 
